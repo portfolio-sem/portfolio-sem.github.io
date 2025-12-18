@@ -205,6 +205,9 @@
         <button onclick="jaar2()">Jaar 2</button>
         <button onclick="jaar3()">Jaar 3</button>
       </div>
+
+      <!-- Project details -->
+      <div id="projectDetail" style="margin-top:40px;"></div>
     </section>
 
     <footer>
@@ -231,17 +234,40 @@
       setActive('btnProjecten');
     }
 
-    // Lege functies voor later
+    function clearProject() {
+      document.getElementById('projectDetail').innerHTML = '';
+    }
+
     function jaar1() {
-      // TODO: projecten van jaar 1
+      document.getElementById('projectDetail').innerHTML = `
+        <h2>Jaar 1 – Knikkerbaan</h2>
+        <p><strong>Project:</strong> Knikkerbaan</p>
+        <p>
+          Ik heb samen met mijn groepje <strong>Jermie, Mathijn en Roan</strong>
+          een knikkerbaan gemaakt. Tijdens dit project hebben we samen gewerkt
+          aan het ontwerp en het bouwproces van de knikkerbaan.
+        </p>
+      `;
     }
 
     function jaar2() {
-      // TODO: projecten van jaar 2
+      document.getElementById('projectDetail').innerHTML = `
+        <h2>Jaar 2 – Brandweerproject</h2>
+        <p>
+          In jaar 2 heb ik gewerkt aan een brandweerproject.
+          Dit project heb ik samen gedaan met <strong>Sitze en Stein</strong>.
+        </p>
+      `;
     }
 
     function jaar3() {
-      // TODO: projecten van jaar 3
+      document.getElementById('projectDetail').innerHTML = `
+        <h2>Jaar 3 – Insectenhotel</h2>
+        <p>
+          In jaar 3 heb ik samen met <strong>Tim en Dylan</strong>
+          een insectenhotel gemaakt.
+        </p>
+      `;
     }
   </script>
 
