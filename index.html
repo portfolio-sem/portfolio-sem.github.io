@@ -143,7 +143,18 @@
       cursor: pointer;
       background: linear-gradient(135deg, var(--secondary), #4db6ac);
       color: white;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .project-buttons button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-buttons button.active {
+      box-shadow: 0 0 0 4px rgba(38, 166, 154, 0.4);
+      transform: scale(1.08);
+      opacity: 1;
     }
 
     .project-buttons button:hover {
@@ -207,7 +218,7 @@
       </div>
 
       <!-- Project details -->
-      <div id="projectDetail" style="margin-top:40px;"></div>
+      <div id="projectDetail" class="info-card" style="margin-top:40px; display:none;"></div>
     </section>
 
     <footer>
@@ -234,40 +245,59 @@
       setActive('btnProjecten');
     }
 
-    function clearProject() {
-      document.getElementById('projectDetail').innerHTML = '';
+    function setActiveYear(button) {
+      document.querySelectorAll('.project-buttons button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
     }
 
-    function jaar1() {
-      document.getElementById('projectDetail').innerHTML = `
+    function showProject(html, button) {
+      const detail = document.getElementById('projectDetail');
+      detail.style.display = 'block';
+      detail.innerHTML = html;
+      setActiveYear(button);
+    }
+
+    function jaar1(el) {
+      showProject(`
         <h2>Jaar 1 – Knikkerbaan</h2>
-        <p><strong>Project:</strong> Knikkerbaan</p>
-        <p>
-          Ik heb samen met mijn groepje <strong>Jermie, Mathijn en Roan</strong>
-          een knikkerbaan gemaakt. Tijdens dit project hebben we samen gewerkt
-          aan het ontwerp en het bouwproces van de knikkerbaan.
+        <p><strong>Opdracht titel:</strong> Knikkerbaan</p>
+        <p><strong>Opdracht groepje:</strong> Mathijn, Jermie, Roan</p>
+        <p><strong>Opdracht proces:</strong><br>
+          We hebben een knikkerbaan gemaakt waarbij de opdracht was om de knikker
+          zo lang mogelijk te laten duren voordat hij de grond raakte.
+          Het doel was om een zo lang mogelijk parcours te maken.
         </p>
-      `;
+        <p><strong>Procescijfer:</strong> 5</p>
+        <p><strong>Productcijfer:</strong> 8</p>
+      `, event.target);
     }
 
-    function jaar2() {
-      document.getElementById('projectDetail').innerHTML = `
+    function jaar2(el) {
+      showProject(`
         <h2>Jaar 2 – Brandweerproject</h2>
-        <p>
-          In jaar 2 heb ik gewerkt aan een brandweerproject.
-          Dit project heb ik samen gedaan met <strong>Sitze en Stein</strong>.
+        <p><strong>Opdracht titel:</strong> Brandweerproject</p>
+        <p><strong>Opdracht groepje:</strong> Sitze, Stein</p>
+        <p><strong>Opdracht proces:</strong><br>
+          We hebben gewerkt aan een brandweerproject waarbij samenwerken
+          en het uitwerken van een praktisch ontwerp centraal stond.
         </p>
-      `;
+        <p><strong>Procescijfer:</strong> 6</p>
+        <p><strong>Productcijfer:</strong> 7</p>
+      `, event.target);
     }
 
-    function jaar3() {
-      document.getElementById('projectDetail').innerHTML = `
+    function jaar3(el) {
+      showProject(`
         <h2>Jaar 3 – Insectenhotel</h2>
-        <p>
-          In jaar 3 heb ik samen met <strong>Tim en Dylan</strong>
-          een insectenhotel gemaakt.
+        <p><strong>Opdracht titel:</strong> Insectenhotel</p>
+        <p><strong>Opdracht groepje:</strong> Tim, Dylan</p>
+        <p><strong>Opdracht proces:</strong><br>
+          We hebben samen een insectenhotel gemaakt om insecten een veilige
+          plek te geven. Hierbij hebben we gelet op materiaalgebruik en indeling.
         </p>
-      `;
+        <p><strong>Procescijfer:</strong> 7</p>
+        <p><strong>Productcijfer:</strong> 8</p>
+      `, event.target);
     }
   </script>
 
